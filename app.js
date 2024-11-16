@@ -41,6 +41,15 @@ app.post("/api/courses/" , (req , res) => {
     res.send(courses)
 })
 
+app.put("/api/courses/:id?" , (req, res) =>{
+    const result = courses.find(c => c.id ===  parseInt(req.params.id) )
+    if(!result){
+       return res.status(404).send("Result Not Found")
+    }
+    result.name = req.body.name
+    res.send(courses)
+})
+
 const port = process.env.APP_PORT || 3000
 app.listen(port , () => {
     console.log(`The Express Project ${port}`)
