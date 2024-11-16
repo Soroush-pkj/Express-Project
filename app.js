@@ -1,11 +1,9 @@
+const logger = require("./logger.js")
 const express = require("express")
 require('dotenv').config()
 const app = express()
 app.use(express.json())
-// app.get()
-// app.post()
-// app.put()
-// app.delete()
+app.use(logger)
 const courses = [
     {id: 1 , name:"html"},
     {id: 2 , name:"CSS"},
